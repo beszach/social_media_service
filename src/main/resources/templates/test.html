@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<!--    <style type="text/css">-->
+<!--        #left {-->
+<!--            width: 400px;-->
+<!--            height: 50px;-->
+<!--            float: left;-->
+<!--            background: rgb(255,51,102);-->
+<!--        }-->
+<!--        #right {-->
+<!--            width: 100px;-->
+<!--            height: 50px;-->
+<!--            float: left;-->
+<!--            background: rgb(0,255,153);-->
+<!--        }-->
+<!--    </style>-->
+
+    <link rel="stylesheet" type="text/css" th:href="@{css/bootstrap.min.css}">
+</head>
+<body>
+Hello world
+<form  th:action="@{/change-access-token/test-redirect}" th:marginwidth="center" th:method="get">
+    <div id="left">
+        Для получения нового вк токена нажми кнопку и скопируй access токен из urlа, вставь в форму и запушь
+    </div>
+    <div id="right">
+        <button class="btn btn-primary">redirect</button>
+    </div>
+</form>
+<form th:object="${new_vk_info}" th:method="POST" th:action="@{/change-access-token/}">
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">New access token</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" th:field="*{vk_access_token}">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">New group id</label>
+        <input type="number" class="form-control" id="exampleInputPassword1" th:field="*{vk_group_id}">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<script th:src="@{js/popper.min.js}"></script>
+<script th:src="@{js/bootstrap.min.js}"></script>
+</body>
+</html>
