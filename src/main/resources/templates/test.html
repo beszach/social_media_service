@@ -23,7 +23,7 @@
 </head>
 <body>
 Hello world
-<form  th:action="@{/change-access-token/test-redirect}" th:marginwidth="center" th:method="get">
+<form  th:action="@{/change-access-token/redirect}" th:marginwidth="center" th:method="get">
     <div id="left">
         Для получения нового вк токена нажми кнопку и скопируй access токен из urlа, вставь в форму и запушь
     </div>
@@ -34,7 +34,7 @@ Hello world
 <form th:object="${new_vk_info}" th:method="POST" th:action="@{/change-access-token/}">
     <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">New access token</label>
-        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" th:field="*{vk_access_token}">
+        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" th:field="*{vk_access_token}" required>
     </div>
     <div class="mb-3">
         <label for="exampleInputPassword1" class="form-label">New group id</label>

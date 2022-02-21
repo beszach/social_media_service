@@ -30,13 +30,5 @@ public class SocialMediaService {
         instagramService.pushPostToPage(itemImageDtoList, infoForPost.getDescription(), infoForPost.getLink());
     }
 
-//    public void test(){
-//        vkService.change();
-//    }
-//
-//    public void test2(String str, Integer integer){
-//        vkService.setTest(str);
-//        vkService.setInteger(integer);
-//    }
 
 }

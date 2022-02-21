@@ -22,19 +22,19 @@ public class VkController {
     private VkService vkService;
 
     @GetMapping
-    public String test1(ModelMap modelMap){
+    public String addNewInfo(ModelMap modelMap){
         modelMap.addAttribute("new_vk_info", new VkInfo());
         return "test";
     }
 
     @PostMapping
-    public String test2(@ModelAttribute VkInfo vkInfo){
+    public String getNewInfo(@ModelAttribute VkInfo vkInfo){
         vkService.changeProperty(vkInfo.getVk_access_token(), vkInfo.getVk_group_id());
         return "redirect:/change-access-token/done";
     }
 
-    @GetMapping("/test-redirect")
-    public String testRedirect(){
+    @GetMapping("/redirect")
+    public String redirect(){
         String GET_TOKEN_URL = new StringBuilder("https://oauth.vk.com/authorize?")
                 .append("client_id=").append(VK_CLIENT_ID)
                 .append("&display=").append("page")
@@ -47,7 +47,7 @@ public class VkController {
     }
 
     @GetMapping("/done")
-    public String complited(){
+    public String done(){
         return "good";
     }
 
